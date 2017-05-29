@@ -86,6 +86,8 @@ class Chrysalis{
                 $additionalParams["extends"] : "";
         
         $content.= "class ".$className." $extends {\n\n";
+        
+        $parentConstruct = (isset($additionalParams["parent_construct"])) ? "\n        parent::__construct();\n":"";
         $constructor = "\n    public function __construct(";
         $constructorC = "";
         $getters = "";
@@ -100,7 +102,7 @@ class Chrysalis{
                     . "\n        ".'$this->'.$key." = $key;\n    }\n";
         }
         $content .= rtrim($constructor,",").") {\n";
-        $content .= $constructorC."    }\n";
+        $content .= $parentConstruct.$constructorC."    }\n";
         $content .= $getters;
         $content .= $setters;
         

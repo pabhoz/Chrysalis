@@ -12,5 +12,5 @@ $additionalMethod = "    public function getMyVars(){\n        return "
 /*$chrysalis->generateClass($chrysalis->tables[0],"../output/",["extends"=>"BModel",
     "additionalMethods"=>[$additionalMethod]]);*/
 
-$chrysalis->generateAllClasses("../output/",["extends"=>"BModel",
+$chrysalis->generateAllClasses("../output/",["extends"=>"BModel", "parent_construct" => true,
     "additionalMethods"=>[$additionalMethod]]);
